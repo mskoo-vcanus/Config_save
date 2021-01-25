@@ -5,8 +5,6 @@ using System.Data;
 using System.Drawing;
 using System.IO;
 using System.Linq;
-using System.Security;
-using System.Security.Permissions;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -25,8 +23,8 @@ namespace Config_Save
         private string path_save = null;
         private string file_name = @"\path.json";
         Dictionary<string, string> dbInfo;
-        string dbJson = null;
-        string isNull = "notNull";
+        private string dbJson = null;
+        private string isNull = "notNull";
 
         public Form1()
         {
@@ -34,7 +32,7 @@ namespace Config_Save
                                                       
         }
         private void NullCheck(string path)
-        {
+        {//path값 null 체크
             if (path == null)
             {
                 isNull = null;
@@ -45,8 +43,7 @@ namespace Config_Save
         {
             path_csv = SelectLocation();
             NullCheck(path_csv);
-            lbl_path1.Text = path_csv;
-           
+            lbl_path1.Text = path_csv;           
         }
 
         private void btn_location2_Click(object sender, EventArgs e)
@@ -74,7 +71,7 @@ namespace Config_Save
             lbl_path4.Text = path_save;
         }
         private string SelectLocation()
-        {
+        {//경로지정
             fd.ShowDialog();
             string path = fd.SelectedPath;
             return path;
@@ -82,7 +79,7 @@ namespace Config_Save
 
         private void InputDbInfo()
         {
-
+            //db 정보 dictionary저장
             try
             {
                 dbInfo = new Dictionary<string, string>();
@@ -94,9 +91,8 @@ namespace Config_Save
                 dbInfo.Add("table", txt_db_tbl.Text);
 
                 dbJson = JsonConvert.SerializeObject(dbInfo, Formatting.Indented);
-                dbJson = JValue.Parse(dbJson).ToString(Formatting.Indented);
-                //dbJson = @dbJson.Replace("\r\n", "").Replace("\\", "").Replace(" ", "");
-
+                //dbJson = JValue.Parse(dbJson).ToString(Formatting.Indented);
+                
             }
             catch (Exception ex)
             {
@@ -106,12 +102,13 @@ namespace Config_Save
         }
 
         private void btn_cencel_Click(object sender, EventArgs e)
-        {
+        {//취소
             Close();
         }
 
         private void btn_ok_Click(object sender, EventArgs e)
         {
+            //null 체크
             if(txt_db_ip.Text!=""&&txt_db_port.Text!=""&&txt_db_id.Text!=""&&txt_db_pw.Text!=""&& txt_db_db.Text !="" && txt_db_tbl.Text !="")
             {
                 InputDbInfo();
@@ -121,30 +118,26 @@ namespace Config_Save
                 MessageBox.Show("db정보를 모두 입력해주세요");
                 return;
             }
-
-
-
-
             try
             {
                 if (isNull != null)
-                {
+                {//json파일 정보 입력
                     pathInfo = new JObject(
                     new JProperty("csv path", path_csv),
                     new JProperty("python.exe", path_pyExe),
                     new JProperty("python script", path_pyScript),
                     new JProperty("설정값 저장위치", path_save),
-                    new JProperty("DB", dbJson)
+                    new JProperty("DB", dbJson.ToString())
                     );
-                    File.WriteAllText(path_save, pathInfo.ToString());
+                    File.WriteAllText(path_save, pathInfo.ToString(), Encoding.Default);
                     Close();
+                    Console.WriteLine(dbJson);
                 }
                 else
                 {
                     MessageBox.Show("위치를 모두 지정해주세요");
                     return;
-                }           
-                
+                }                           
             }
             catch (Exception ex)
             {
