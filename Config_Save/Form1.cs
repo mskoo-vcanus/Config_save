@@ -16,59 +16,65 @@ namespace Config_Save
     public partial class Form1 : Form
     {
         public static FolderBrowserDialog fd = new FolderBrowserDialog();
-        JObject pathInfo;
-        private string path_csv = null;
-        private string path_pyExe = null;
-        private string path_pyScript = null;
-        private string path_save = null;
-        private string file_name = @"\path.json";
-        Dictionary<string, string> dbInfo;
-        private string dbJson = null;
-        private string isNull = "notNull";
+
+        SystemConfig sysConfig = SystemConfig.Instance;
+        
+        private bool isValid = true;
 
         public Form1()
         {
             InitializeComponent();
+            ConfigToUI();
                                                       
         }
-        private void NullCheck(string path)
-        {//path값 null 체크
-            if (path == null)
+        //private void NullCheck(string path)
+        //{//path값 null 체크
+        //    if (path != null)
+        //    {
+        //        isNull = false;
+        //    }
+            
+        //}
+
+        private void NullCheck(JObject jObj)
+        {
+            try
             {
-                isNull = null;
+                for (int i = 0; i < jObj.Count; i++)
+                {
+                    JToken token = jObj[i];
+                    jObj.HasValues
+                    if (token.HasValues == false) { isValid = false; }
+                }
+                
+
+            }catch(Exception ex)
+            {
+                MessageBox.Show("NullCheck : " + ex.Message);
             }
+                       
             
         }
         private void btn_location1_Click(object sender, EventArgs e)
         {
-            path_csv = SelectLocation();
-            NullCheck(path_csv);
-            lbl_path1.Text = path_csv;           
+            lbl_path1.Text = sysConfig.CsvPath = SelectLocation();
+            
+            
         }
 
         private void btn_location2_Click(object sender, EventArgs e)
         {
-            path_pyExe = SelectLocation();
-            NullCheck(path_pyExe);
-            lbl_path2.Text = path_pyExe;
+            lbl_path2.Text = sysConfig.PythonExe = SelectLocation();
         }
 
         private void btn_location3_Click(object sender, EventArgs e)
         {
-            path_pyScript = SelectLocation();
-            NullCheck(path_pyScript);
-            lbl_path3.Text = path_pyScript;
+            lbl_path3.Text = sysConfig.PythonScript = SelectLocation();
         }
 
         private void btn_location4_Click(object sender, EventArgs e)
         {
-            path_save = SelectLocation();
-            NullCheck(path_save);
-            if(path_save!=null)
-            {
-                path_save += file_name;
-            }
-            lbl_path4.Text = path_save;
+            lbl_path4.Text = sysConfig.SaveLocation = SelectLocation();            
         }
         private string SelectLocation()
         {//경로지정
@@ -77,29 +83,6 @@ namespace Config_Save
             return path;
         }
 
-        private void InputDbInfo()
-        {
-            //db 정보 dictionary저장
-            try
-            {
-                dbInfo = new Dictionary<string, string>();
-                dbInfo.Add("ip", txt_db_ip.Text);
-                dbInfo.Add("Port", txt_db_port.Text);
-                dbInfo.Add("Id", txt_db_id.Text);
-                dbInfo.Add("Pw", txt_db_pw.Text);
-                dbInfo.Add("database", txt_db_db.Text);
-                dbInfo.Add("table", txt_db_tbl.Text);
-
-                dbJson = JsonConvert.SerializeObject(dbInfo, Formatting.Indented);
-                //dbJson = JValue.Parse(dbJson).ToString(Formatting.Indented);
-                
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }       
-
-        }
 
         private void btn_cencel_Click(object sender, EventArgs e)
         {//취소
@@ -108,41 +91,20 @@ namespace Config_Save
 
         private void btn_ok_Click(object sender, EventArgs e)
         {
-            //null 체크
-            if(txt_db_ip.Text!=""&&txt_db_port.Text!=""&&txt_db_id.Text!=""&&txt_db_pw.Text!=""&& txt_db_db.Text !="" && txt_db_tbl.Text !="")
-            {
-                InputDbInfo();
-            }
-            else
-            {
-                MessageBox.Show("db정보를 모두 입력해주세요");
-                return;
-            }
-            try
-            {
-                if (isNull != null)
-                {//json파일 정보 입력
-                    pathInfo = new JObject(
-                    new JProperty("csv path", path_csv),
-                    new JProperty("python.exe", path_pyExe),
-                    new JProperty("python script", path_pyScript),
-                    new JProperty("설정값 저장위치", path_save),
-                    new JProperty("DB", dbJson.ToString())
-                    );
-                    File.WriteAllText(path_save, pathInfo.ToString(), Encoding.Default);
-                    Close();
-                    Console.WriteLine(dbJson);
-                }
-                else
-                {
-                    MessageBox.Show("위치를 모두 지정해주세요");
-                    return;
-                }                           
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }            
+            UIToConfig();
+            SystemConfig.Instance.Save();     
+
+        }
+
+
+        public void ConfigToUI()
+        {
+            SystemConfig config = SystemConfig.Instance;
+        }
+
+        public void UIToConfig()
+        {
+            SystemConfig config = SystemConfig.Instance;
 
         }
     }

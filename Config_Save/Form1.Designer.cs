@@ -61,7 +61,7 @@ namespace Config_Save
             // 
             // btn_ok
             // 
-            this.btn_ok.Location = new System.Drawing.Point(300, 357);
+            this.btn_ok.Location = new System.Drawing.Point(305, 412);
             this.btn_ok.Name = "btn_ok";
             this.btn_ok.Size = new System.Drawing.Size(75, 31);
             this.btn_ok.TabIndex = 4;
@@ -70,7 +70,7 @@ namespace Config_Save
             // 
             // btn_cencel
             // 
-            this.btn_cencel.Location = new System.Drawing.Point(381, 357);
+            this.btn_cencel.Location = new System.Drawing.Point(386, 412);
             this.btn_cencel.Name = "btn_cencel";
             this.btn_cencel.Size = new System.Drawing.Size(75, 31);
             this.btn_cencel.TabIndex = 5;
@@ -79,14 +79,14 @@ namespace Config_Save
             // 
             // txt_db_ip
             // 
-            this.txt_db_ip.Location = new System.Drawing.Point(84, 30);
+            this.txt_db_ip.Location = new System.Drawing.Point(129, 28);
             this.txt_db_ip.Name = "txt_db_ip";
-            this.txt_db_ip.Size = new System.Drawing.Size(150, 21);
+            this.txt_db_ip.Size = new System.Drawing.Size(284, 21);
             this.txt_db_ip.TabIndex = 7;
             // 
             // lbl_db_ip
             // 
-            this.lbl_db_ip.Location = new System.Drawing.Point(48, 30);
+            this.lbl_db_ip.Location = new System.Drawing.Point(93, 28);
             this.lbl_db_ip.Name = "lbl_db_ip";
             this.lbl_db_ip.Size = new System.Drawing.Size(9, 14);
             this.lbl_db_ip.TabIndex = 8;
@@ -94,7 +94,7 @@ namespace Config_Save
             // 
             // labelControl1
             // 
-            this.labelControl1.Location = new System.Drawing.Point(34, 60);
+            this.labelControl1.Location = new System.Drawing.Point(79, 58);
             this.labelControl1.Name = "labelControl1";
             this.labelControl1.Size = new System.Drawing.Size(23, 14);
             this.labelControl1.TabIndex = 9;
@@ -102,42 +102,42 @@ namespace Config_Save
             // 
             // txt_db_port
             // 
-            this.txt_db_port.Location = new System.Drawing.Point(84, 60);
+            this.txt_db_port.Location = new System.Drawing.Point(129, 58);
             this.txt_db_port.Name = "txt_db_port";
-            this.txt_db_port.Size = new System.Drawing.Size(150, 21);
+            this.txt_db_port.Size = new System.Drawing.Size(284, 21);
             this.txt_db_port.TabIndex = 10;
             // 
             // txt_db_id
             // 
-            this.txt_db_id.Location = new System.Drawing.Point(84, 90);
+            this.txt_db_id.Location = new System.Drawing.Point(129, 88);
             this.txt_db_id.Name = "txt_db_id";
-            this.txt_db_id.Size = new System.Drawing.Size(150, 21);
+            this.txt_db_id.Size = new System.Drawing.Size(284, 21);
             this.txt_db_id.TabIndex = 11;
             // 
             // txt_db_pw
             // 
-            this.txt_db_pw.Location = new System.Drawing.Point(84, 120);
+            this.txt_db_pw.Location = new System.Drawing.Point(129, 118);
             this.txt_db_pw.Name = "txt_db_pw";
-            this.txt_db_pw.Size = new System.Drawing.Size(150, 21);
+            this.txt_db_pw.Size = new System.Drawing.Size(284, 21);
             this.txt_db_pw.TabIndex = 12;
             // 
             // txt_db_db
             // 
-            this.txt_db_db.Location = new System.Drawing.Point(84, 150);
+            this.txt_db_db.Location = new System.Drawing.Point(129, 148);
             this.txt_db_db.Name = "txt_db_db";
-            this.txt_db_db.Size = new System.Drawing.Size(150, 21);
+            this.txt_db_db.Size = new System.Drawing.Size(284, 21);
             this.txt_db_db.TabIndex = 13;
             // 
             // txt_db_tbl
             // 
-            this.txt_db_tbl.Location = new System.Drawing.Point(84, 180);
+            this.txt_db_tbl.Location = new System.Drawing.Point(129, 178);
             this.txt_db_tbl.Name = "txt_db_tbl";
-            this.txt_db_tbl.Size = new System.Drawing.Size(150, 21);
+            this.txt_db_tbl.Size = new System.Drawing.Size(284, 21);
             this.txt_db_tbl.TabIndex = 14;
             // 
             // labelControl2
             // 
-            this.labelControl2.Location = new System.Drawing.Point(8, 150);
+            this.labelControl2.Location = new System.Drawing.Point(53, 148);
             this.labelControl2.Name = "labelControl2";
             this.labelControl2.Size = new System.Drawing.Size(49, 14);
             this.labelControl2.TabIndex = 15;
@@ -145,7 +145,7 @@ namespace Config_Save
             // 
             // labelControl3
             // 
-            this.labelControl3.Location = new System.Drawing.Point(40, 120);
+            this.labelControl3.Location = new System.Drawing.Point(85, 118);
             this.labelControl3.Name = "labelControl3";
             this.labelControl3.Size = new System.Drawing.Size(17, 14);
             this.labelControl3.TabIndex = 16;
@@ -153,7 +153,7 @@ namespace Config_Save
             // 
             // labelControl4
             // 
-            this.labelControl4.Location = new System.Drawing.Point(46, 90);
+            this.labelControl4.Location = new System.Drawing.Point(91, 88);
             this.labelControl4.Name = "labelControl4";
             this.labelControl4.Size = new System.Drawing.Size(11, 14);
             this.labelControl4.TabIndex = 17;
@@ -161,7 +161,7 @@ namespace Config_Save
             // 
             // labelControl5
             // 
-            this.labelControl5.Location = new System.Drawing.Point(30, 179);
+            this.labelControl5.Location = new System.Drawing.Point(75, 177);
             this.labelControl5.Name = "labelControl5";
             this.labelControl5.Size = new System.Drawing.Size(27, 14);
             this.labelControl5.TabIndex = 18;
@@ -307,7 +307,7 @@ namespace Config_Save
             this.panel_db.Controls.Add(this.txt_db_ip);
             this.panel_db.Location = new System.Drawing.Point(12, 185);
             this.panel_db.Name = "panel_db";
-            this.panel_db.Size = new System.Drawing.Size(266, 210);
+            this.panel_db.Size = new System.Drawing.Size(449, 210);
             this.panel_db.TabIndex = 30;
             // 
             // Form1
@@ -315,7 +315,7 @@ namespace Config_Save
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(473, 440);
+            this.ClientSize = new System.Drawing.Size(473, 455);
             this.ControlBox = false;
             this.Controls.Add(this.panel_db);
             this.Controls.Add(this.panel_path);
