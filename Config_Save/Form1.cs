@@ -87,7 +87,8 @@ namespace Config_Save
             if (UIToConfig())
             {
                 config.Save();
-                Close();
+                MessageBox.Show("등록 완료");
+                Close();              
             }            
             else
             {
