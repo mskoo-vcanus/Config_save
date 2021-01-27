@@ -81,9 +81,15 @@ namespace Config_Save
 
         public void Load()
         {
-            string json = File.ReadAllText(filePath); //json string으로 읽어오기
-            JToken jToken = JToken.Parse(json); //jToken변환
-            FromJson(jToken); 
+            try
+            {
+                string json = File.ReadAllText(filePath); //json string으로 읽어오기
+                JToken jToken = JToken.Parse(json); //jToken변환
+                FromJson(jToken); 
+            }catch(Exception e)
+            {
+                return;
+            }
         }
         public void Save()
         {

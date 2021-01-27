@@ -1,14 +1,14 @@
 {
   "csvPath": "C:\\Users\\user\\OneDrive - VCANUS\\바탕 화면",
-  "pythonExe": "C:\\",
-  "pythonScript": "C:\\Users\\user\\OneDrive - VCANUS\\바탕 화면\\20190722",
+  "pythonExe": "C:\\Users\\user\\OneDrive - VCANUS\\바탕 화면",
+  "pythonScript": "C:\\Users\\user\\OneDrive - VCANUS\\바탕 화면",
   "saveLocation": "C:\\Users\\user\\OneDrive - VCANUS\\바탕 화면",
   "DB": {
-    "ip": "a",
-    "port": "s",
-    "id": "1234",
-    "pw": "a234235sef",
-    "database": "11sdasd",
-    "table": "qwe124"
+    "ip": "1234",
+    "port": "a",
+    "id": "a",
+    "pw": "s",
+    "database": "d",
+    "table": "d"
   }
 }
