@@ -52,3 +52,4 @@ C:\project\vcv\Config_Save\Config_Save\bin\Debug\ja\DevExpress.Pdf.v20.2.Core.re
 C:\project\vcv\Config_Save\Config_Save\bin\Debug\ru\DevExpress.Pdf.v20.2.Core.resources.dll
 C:\project\vcv\Config_Save\Config_Save\obj\Debug\Config_Setting.csproj.CopyComplete
 C:\project\vcv\Config_Save\Config_Save\obj\Debug\Config_Save.exe.licenses
+C:\project\vcv\Config_Save\Config_Save\bin\Debug\config.json

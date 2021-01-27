@@ -43,10 +43,10 @@ namespace Config_Save
             this.labelControl3 = new DevExpress.XtraEditors.LabelControl();
             this.labelControl4 = new DevExpress.XtraEditors.LabelControl();
             this.labelControl5 = new DevExpress.XtraEditors.LabelControl();
-            this.lbl_path1 = new System.Windows.Forms.Label();
-            this.lbl_path2 = new System.Windows.Forms.Label();
-            this.lbl_path3 = new System.Windows.Forms.Label();
-            this.lbl_path4 = new System.Windows.Forms.Label();
+            this.lbl_csvPath = new System.Windows.Forms.Label();
+            this.lbl_pythonExe = new System.Windows.Forms.Label();
+            this.lbl_pythonScript = new System.Windows.Forms.Label();
+            this.lbl_saveLocation = new System.Windows.Forms.Label();
             this.btn_location1 = new System.Windows.Forms.Button();
             this.btn_location2 = new System.Windows.Forms.Button();
             this.btn_location3 = new System.Windows.Forms.Button();
@@ -167,45 +167,45 @@ namespace Config_Save
             this.labelControl5.TabIndex = 18;
             this.labelControl5.Text = "table";
             // 
-            // lbl_path1
+            // lbl_csvPath
             // 
-            this.lbl_path1.AutoSize = true;
-            this.lbl_path1.Font = new System.Drawing.Font("굴림", 7F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.lbl_path1.Location = new System.Drawing.Point(117, 37);
-            this.lbl_path1.Name = "lbl_path1";
-            this.lbl_path1.Size = new System.Drawing.Size(14, 10);
-            this.lbl_path1.TabIndex = 19;
-            this.lbl_path1.Text = "\\";
+            this.lbl_csvPath.AutoSize = true;
+            this.lbl_csvPath.Font = new System.Drawing.Font("굴림", 7F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.lbl_csvPath.Location = new System.Drawing.Point(117, 37);
+            this.lbl_csvPath.Name = "lbl_csvPath";
+            this.lbl_csvPath.Size = new System.Drawing.Size(14, 10);
+            this.lbl_csvPath.TabIndex = 19;
+            this.lbl_csvPath.Text = "\\";
             // 
-            // lbl_path2
+            // lbl_pythonExe
             // 
-            this.lbl_path2.AutoSize = true;
-            this.lbl_path2.Font = new System.Drawing.Font("굴림", 7F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.lbl_path2.Location = new System.Drawing.Point(117, 66);
-            this.lbl_path2.Name = "lbl_path2";
-            this.lbl_path2.Size = new System.Drawing.Size(14, 10);
-            this.lbl_path2.TabIndex = 20;
-            this.lbl_path2.Text = "\\";
+            this.lbl_pythonExe.AutoSize = true;
+            this.lbl_pythonExe.Font = new System.Drawing.Font("굴림", 7F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.lbl_pythonExe.Location = new System.Drawing.Point(117, 66);
+            this.lbl_pythonExe.Name = "lbl_pythonExe";
+            this.lbl_pythonExe.Size = new System.Drawing.Size(14, 10);
+            this.lbl_pythonExe.TabIndex = 20;
+            this.lbl_pythonExe.Text = "\\";
             // 
-            // lbl_path3
+            // lbl_pythonScript
             // 
-            this.lbl_path3.AutoSize = true;
-            this.lbl_path3.Font = new System.Drawing.Font("굴림", 7F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.lbl_path3.Location = new System.Drawing.Point(117, 95);
-            this.lbl_path3.Name = "lbl_path3";
-            this.lbl_path3.Size = new System.Drawing.Size(14, 10);
-            this.lbl_path3.TabIndex = 21;
-            this.lbl_path3.Text = "\\";
+            this.lbl_pythonScript.AutoSize = true;
+            this.lbl_pythonScript.Font = new System.Drawing.Font("굴림", 7F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.lbl_pythonScript.Location = new System.Drawing.Point(117, 95);
+            this.lbl_pythonScript.Name = "lbl_pythonScript";
+            this.lbl_pythonScript.Size = new System.Drawing.Size(14, 10);
+            this.lbl_pythonScript.TabIndex = 21;
+            this.lbl_pythonScript.Text = "\\";
             // 
-            // lbl_path4
+            // lbl_saveLocation
             // 
-            this.lbl_path4.AutoSize = true;
-            this.lbl_path4.Font = new System.Drawing.Font("굴림", 7F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.lbl_path4.Location = new System.Drawing.Point(117, 124);
-            this.lbl_path4.Name = "lbl_path4";
-            this.lbl_path4.Size = new System.Drawing.Size(14, 10);
-            this.lbl_path4.TabIndex = 22;
-            this.lbl_path4.Text = "\\";
+            this.lbl_saveLocation.AutoSize = true;
+            this.lbl_saveLocation.Font = new System.Drawing.Font("굴림", 7F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.lbl_saveLocation.Location = new System.Drawing.Point(117, 124);
+            this.lbl_saveLocation.Name = "lbl_saveLocation";
+            this.lbl_saveLocation.Size = new System.Drawing.Size(14, 10);
+            this.lbl_saveLocation.TabIndex = 22;
+            this.lbl_saveLocation.Text = "\\";
             // 
             // btn_location1
             // 
@@ -280,10 +280,10 @@ namespace Config_Save
             this.panel_path.Controls.Add(this.btn_location3);
             this.panel_path.Controls.Add(this.btn_location2);
             this.panel_path.Controls.Add(this.btn_location1);
-            this.panel_path.Controls.Add(this.lbl_path4);
-            this.panel_path.Controls.Add(this.lbl_path3);
-            this.panel_path.Controls.Add(this.lbl_path2);
-            this.panel_path.Controls.Add(this.lbl_path1);
+            this.panel_path.Controls.Add(this.lbl_saveLocation);
+            this.panel_path.Controls.Add(this.lbl_pythonScript);
+            this.panel_path.Controls.Add(this.lbl_pythonExe);
+            this.panel_path.Controls.Add(this.lbl_csvPath);
             this.panel_path.Location = new System.Drawing.Point(12, 21);
             this.panel_path.Name = "panel_path";
             this.panel_path.Size = new System.Drawing.Size(451, 152);
@@ -346,10 +346,10 @@ namespace Config_Save
         private DevExpress.XtraEditors.LabelControl labelControl3;
         private DevExpress.XtraEditors.LabelControl labelControl4;
         private DevExpress.XtraEditors.LabelControl labelControl5;
-        private System.Windows.Forms.Label lbl_path1;
-        private System.Windows.Forms.Label lbl_path2;
-        private System.Windows.Forms.Label lbl_path3;
-        private System.Windows.Forms.Label lbl_path4;
+        private System.Windows.Forms.Label lbl_csvPath;
+        private System.Windows.Forms.Label lbl_pythonExe;
+        private System.Windows.Forms.Label lbl_pythonScript;
+        private System.Windows.Forms.Label lbl_saveLocation;
         private System.Windows.Forms.Button btn_location1;
         private System.Windows.Forms.Button btn_location2;
         private System.Windows.Forms.Button btn_location3;

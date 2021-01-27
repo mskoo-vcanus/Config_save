@@ -17,9 +17,18 @@ namespace Config_Save
     {
         public static FolderBrowserDialog fd = new FolderBrowserDialog();
 
-        SystemConfig sysConfig = SystemConfig.Instance;
-        
-        private bool isValid = true;
+        SystemConfig config = SystemConfig.Instance;
+
+        private string csvPath = null;
+        private string pythonExe = null ;
+        private string pythonScript = null;
+        private string saveLocation = null ;
+        private string ip = null;
+        private string port = null;
+        private string id = null;
+        private string pw = null;
+        private string database = null;
+        private string table = null;
 
         public Form1()
         {
@@ -27,54 +36,38 @@ namespace Config_Save
             ConfigToUI();
                                                       
         }
-        //private void NullCheck(string path)
-        //{//path값 null 체크
-        //    if (path != null)
-        //    {
-        //        isNull = false;
-        //    }
-            
-        //}
 
-        private void NullCheck(JObject jObj)
+        private bool NullCheck()
         {
-            try
-            {
-                for (int i = 0; i < jObj.Count; i++)
-                {
-                    JToken token = jObj[i];
-                    jObj.HasValues
-                    if (token.HasValues == false) { isValid = false; }
-                }
-                
-
-            }catch(Exception ex)
-            {
-                MessageBox.Show("NullCheck : " + ex.Message);
-            }
-                       
+            string[] configs = 
+                { csvPath, pythonExe, pythonScript, saveLocation, ip, port, id, pw, database, table };
             
+            foreach(string item in configs)
+            {
+                if (item == null || item.Trim() == "") { return false; }
+            }
+
+            return true;
         }
+
         private void btn_location1_Click(object sender, EventArgs e)
         {
-            lbl_path1.Text = sysConfig.CsvPath = SelectLocation();
-            
-            
+            lbl_csvPath.Text = SelectLocation();            
         }
 
         private void btn_location2_Click(object sender, EventArgs e)
         {
-            lbl_path2.Text = sysConfig.PythonExe = SelectLocation();
+            lbl_pythonExe.Text = SelectLocation();
         }
 
         private void btn_location3_Click(object sender, EventArgs e)
         {
-            lbl_path3.Text = sysConfig.PythonScript = SelectLocation();
+            lbl_pythonScript.Text = SelectLocation();
         }
 
         private void btn_location4_Click(object sender, EventArgs e)
         {
-            lbl_path4.Text = sysConfig.SaveLocation = SelectLocation();            
+            lbl_saveLocation.Text = SelectLocation();            
         }
         private string SelectLocation()
         {//경로지정
@@ -85,27 +78,78 @@ namespace Config_Save
 
 
         private void btn_cencel_Click(object sender, EventArgs e)
-        {//취소
+        {
             Close();
         }
 
         private void btn_ok_Click(object sender, EventArgs e)
         {
-            UIToConfig();
-            SystemConfig.Instance.Save();     
-
+            if (UIToConfig())
+            {
+                config.Save();
+                Close();
+            }            
+            else
+            {
+                MessageBox.Show("설정값과 DB정보를 모두 입력해주세요");
+                return;
+            }
         }
 
+        private void InputInfo()
+        {
+            csvPath = lbl_csvPath.Text;
+            pythonExe = lbl_pythonExe.Text;
+            pythonScript = lbl_pythonScript.Text;
+            saveLocation = lbl_saveLocation.Text;
+
+
+            ip = txt_db_ip.Text;
+            port = txt_db_port.Text;
+            id = txt_db_id.Text;
+            pw = txt_db_pw.Text;
+            database = txt_db_db.Text;
+            table = txt_db_tbl.Text;
+        }
 
         public void ConfigToUI()
         {
-            SystemConfig config = SystemConfig.Instance;
+            lbl_csvPath.Text = config.CsvPath;
+            lbl_pythonExe.Text = config.PythonExe;
+            lbl_pythonScript.Text = config.PythonScript;
+            lbl_saveLocation.Text = config.SaveLocation;
+
+            txt_db_ip.Text = config.Ip;
+            txt_db_port.Text = config.Port;
+            txt_db_id.Text = config.Id;
+            txt_db_pw.Text = config.Pw;
+            txt_db_db.Text = config.Database;
+            txt_db_tbl.Text = config.Table;
         }
 
-        public void UIToConfig()
+        public bool UIToConfig()
         {
-            SystemConfig config = SystemConfig.Instance;
+            InputInfo();
 
+            if (NullCheck())
+            {
+                config.CsvPath = csvPath;
+                config.PythonExe = pythonExe;
+                config.PythonScript = pythonScript;
+                config.SaveLocation = saveLocation;
+                config.Ip = ip;
+                config.Port = port;
+                config.Id = id;
+                config.Pw = pw;
+                config.Database = database;
+                config.Table = table;
+
+                return true;
+            }
+            else
+            {
+                return false;
+            }
         }
     }
 }

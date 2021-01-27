@@ -55,6 +55,7 @@ namespace Config_Save
         public string Table { get => table; set => table = value; }
 
         string filePath;
+
         private SystemConfig()
         {
             // relative path
@@ -88,12 +89,28 @@ namespace Config_Save
         {
             JToken jToken = ToJson();
 
-            System.IO.File.WriteAllText(filePath, jToken.ToString());
+            File.WriteAllText(filePath, jToken.ToString());
+            File.WriteAllText(saveLocation + @"\" + FILENAME, jToken.ToString());          
         }
 
         public void FromJson(JToken jToken)
         {
+            JObject json = jToken as JObject;
+            csvPath = json[STR_csvPath].ToString();
+            pythonExe = json[STR_pythonExe].ToString();
+            pythonScript = json[STR_pythonScript].ToString();
+            saveLocation = json[STR_saveLocation].ToString();
+            
+            JToken dbJsonToken = json[STR_db];
+            JObject dbJson = (JObject)dbJsonToken;
 
+
+            ip = dbJson[STR_ip].ToString();
+            port = dbJson[STR_port].ToString();
+            id = dbJson[STR_id].ToString();
+            pw = dbJson[STR_pw].ToString();
+            database = dbJson[STR_database].ToString();
+            table = dbJson[STR_table].ToString();
         }
 
         public JToken ToJson()
